@@ -1,11 +1,13 @@
 import './App.css';
-import Navbar from './componentes/Navbar/Navbar';
+import ItemListContainer from './componentes/ItemListContainer';
+import Navbar from './componentes/Navbar';
 
 
 function App() {
   return (
     <div className="App">
       <Navbar />
+      <ItemListContainer />
     </div>
   );
 }

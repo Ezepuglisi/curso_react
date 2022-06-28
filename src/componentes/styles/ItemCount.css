@@ -1,0 +1,9 @@
+.item-count{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-count button, .item-count p{
+    margin:10px
+}
