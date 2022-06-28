@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Heading, useTheme, IconButton, Icon } from '@chakra-ui/react'
-import { AiOutlineShoppingCart } from 'react-icons/ai'
+import CartWidget from './CartWidget'
+
 
 
 const AppHeader = () => {
@@ -21,14 +22,7 @@ const AppHeader = () => {
             <Flex align="center">
                 <Heading size="md">Marvel Items</Heading>
             </Flex>
-            <IconButton
-                m="1"
-                bg={theme.colors.blue[700]}
-                size="lg"
-                aria-label='save recording'
-                color="white"
-                icon={<Icon as={AiOutlineShoppingCart} />}
-            />
+            <CartWidget theme={theme}/>
         </Flex>
     )
 }
