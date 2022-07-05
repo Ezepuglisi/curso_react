@@ -1,36 +1,10 @@
 import React from 'react'
 import Item from './Item'
-import products from '../productos.js'
-import { useEffect, useState } from 'react'
+
+
 import './styles/itemList.css'
 
-const ItemList = () => {
-
-    const [items, setItems] = useState([])
-    
-    const getProductos = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products)
-        }, 2000)
-    })
-
-    const getProductsFromDB = async () => {
-        try {
-          const result = await getProductos;
-          setItems(result);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-      
-      useEffect(() => {
-        getProductsFromDB();
-      }, []);
-    
-
-
-      console.log(items)
+const ItemList = ({items}) => {
 
     return (
         <div className='container row items'>

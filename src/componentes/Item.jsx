@@ -13,9 +13,6 @@ import ItemCount from './ItemCount';
 
 export default function Item({titulo,descripcion,precio,img,stock}) {
 
-  const handleAdd = () => {
-    alert('Producto agregado al carrito');
-  }
 
   return (
     <Center py={12}>
@@ -72,8 +69,7 @@ export default function Item({titulo,descripcion,precio,img,stock}) {
             </Text>
           </Stack>
           <ItemCount stock={stock} />
-          <Button
-          onClick={handleAdd}>Agregar al carrito</Button>
+          <Button>Ver más</Button>
         </Stack>
       </Box>
     </Center>
