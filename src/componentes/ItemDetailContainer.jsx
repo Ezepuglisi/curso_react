@@ -1,12 +1,14 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import products from '../productos.js'
 import ItemDetail from './ItemDetail.jsx'
 
-const ItemDetailContainer = ({id}) => {
+const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
+    const {id} = useParams()
 
     const getProductos = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -14,12 +16,13 @@ const ItemDetailContainer = ({id}) => {
         }, 2000)
     })
 
-    const getById = (array,id) => array.find(element => element.id == id)  
+    const getById = (array,id) => array.find(element => element.id === id)  
 
     const getProductsFromDB = async () => {
         try {
             const result = await getProductos;
-            setItem(getById(result,id))
+            console.log(id)
+            setItem(getById(result,Number(id)))
         } catch (error) {
             console.log(error);
         }

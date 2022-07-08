@@ -1,5 +1,6 @@
 import React from 'react'
-import { Flex, Heading, useTheme, IconButton, Icon } from '@chakra-ui/react'
+import { Flex, Heading, useTheme} from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidget'
 
 
@@ -20,7 +21,7 @@ const AppHeader = () => {
 
         >
             <Flex align="center">
-                <Heading size="md">Marvel Items</Heading>
+                <Link to='/'><Heading size="md">Marvel Items</Heading></Link>
             </Flex>
             <CartWidget theme={theme}/>
         </Flex>

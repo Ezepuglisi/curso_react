@@ -8,10 +8,11 @@ import {
   Image,
   Button,
 } from '@chakra-ui/react';
-import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
+//import ItemCount from './ItemCount';
 
 
-export default function Item({titulo,descripcion,precio,img,stock}) {
+export default function Item({titulo,descripcion,precio,img,stock,id}) {
 
 
   return (
@@ -68,8 +69,7 @@ export default function Item({titulo,descripcion,precio,img,stock}) {
               ${precio}
             </Text>
           </Stack>
-          <ItemCount stock={stock} />
-          <Button>Ver más</Button>
+          <Link to={`/item/${id}`}><Button>Ver más</Button></Link>
         </Stack>
       </Box>
     </Center>

@@ -15,7 +15,8 @@ import {
     ListItem,
   } from '@chakra-ui/react';
   import { MdLocalShipping } from 'react-icons/md';
-  
+  import ItemCount from './ItemCount';
+
   export default function Simple({item}) {
     return (
       <Container maxW={'7xl'}>
@@ -83,12 +84,14 @@ import {
               }}>
               Add to cart
             </Button>
+            <ItemCount stock={item.stock} />
   
             <Stack direction="row" alignItems="center" justifyContent={'center'}>
               <MdLocalShipping />
               <Text>Envíos gratis a todo el país</Text>
             </Stack>
           </Stack>
+         
         </SimpleGrid>
       </Container>
     );
