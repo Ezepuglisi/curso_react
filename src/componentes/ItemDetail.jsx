@@ -6,18 +6,23 @@ import {
     Image,
     Flex,
     VStack,
-    Button,
     Heading,
     SimpleGrid,
     StackDivider,
     useColorModeValue,
-    List,
-    ListItem,
   } from '@chakra-ui/react';
   import { MdLocalShipping } from 'react-icons/md';
   import ItemCount from './ItemCount';
+  import { useContext } from 'react';
+  import { CartContext } from '../../src/context/CartContext';
 
   export default function Simple({item}) {
+
+    const cartContex = useContext( CartContext );
+  
+    const {addToCart} = cartContex;
+
+
     return (
       <Container maxW={'7xl'}>
         <SimpleGrid
@@ -69,22 +74,7 @@ import {
               </VStack>
             </Stack>
   
-            <Button
-              rounded={'none'}
-              w={'full'}
-              mt={8}
-              size={'lg'}
-              py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
-              textTransform={'uppercase'}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'lg',
-              }}>
-              Add to cart
-            </Button>
-            <ItemCount stock={item.stock} />
+            <ItemCount item={item} onAdd={addToCart} />
   
             <Stack direction="row" alignItems="center" justifyContent={'center'}>
               <MdLocalShipping />

@@ -9,11 +9,15 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../src/context/CartContext';
 //import ItemCount from './ItemCount';
 
 
 export default function Item({titulo,descripcion,precio,img,stock,id}) {
 
+  const cartContex = useContext( CartContext );
+  console.log(cartContex)
 
   return (
     <Center py={12}>
@@ -32,23 +36,7 @@ export default function Item({titulo,descripcion,precio,img,stock,id}) {
           mt={-12}
           pos={'relative'}
           height={'230px'}
-          _after={{
-            transition: 'all .3s ease',
-            content: '""',
-            w: 'full',
-            h: 'full',
-            pos: 'absolute',
-            top: 5,
-            left: 0,
-            backgroundImage: `url(${img})`,
-            filter: 'blur(15px)',
-            zIndex: -1,
-          }}
-          _groupHover={{
-            _after: {
-              filter: 'blur(20px)',
-            },
-          }}>
+          >
           <Image
             rounded={'lg'}
             height={230}

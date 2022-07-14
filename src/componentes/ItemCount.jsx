@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import { Button, Text } from '@chakra-ui/react'
+import { Box, Button, Text,useColorModeValue } from '@chakra-ui/react'
 import './styles/ItemCount.css'
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({item,onAdd}) => {
 
     const [cant, setCant] = useState(0)
 
     const handleAdd = () => {
-        stock > cant ? setCant(cant + 1) : alert('No hay stock')
+        item.stock > cant ? setCant(cant + 1) : alert('No hay stock')
     }
 
     const handleCant = (e) =>{
@@ -15,7 +15,8 @@ const ItemCount = ({stock}) => {
     }
 
     return (
-        <div className='item-count'>
+        <>
+        <Box className='item-count'>
             <Button
             onClick={handleCant}
             disabled={cant === 0 ? true : false }>
@@ -28,7 +29,25 @@ const ItemCount = ({stock}) => {
             onClick={handleCant}>
                 +
             </Button>
-        </div>
+            </Box>
+            <Button
+              rounded={'none'}
+              w={'full'}
+              mt={8}
+              size={'lg'}
+              py={'7'}
+              bg={useColorModeValue('gray.900', 'gray.50')}
+              color={useColorModeValue('white', 'gray.900')}
+              textTransform={'uppercase'}
+              _hover={{
+                  transform: 'translateY(2px)',
+                  boxShadow: 'lg',
+              }}
+              onClick={()=>onAdd(item,cant)}>
+              Add to cart
+            </Button>
+        </>
+        
     )
 }
 
